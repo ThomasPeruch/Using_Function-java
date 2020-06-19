@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import entities.Product;
@@ -19,7 +20,9 @@ public class Program {
 		list.add(new Product("Cabo HDMI",50.00));
 		list.add(new Product("Headset",200.00));
 		
-		List<String> namesInCapsLock = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
+		Function<Product,String> func = p -> p.getName().toUpperCase();
+		
+		List<String> namesInCapsLock = list.stream().map(func).collect(Collectors.toList());
 		namesInCapsLock.forEach(System.out::println);
 	}
 }
