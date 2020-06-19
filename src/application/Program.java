@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import entities.Product;
-import utility.UpperCaseName;
 
 public class Program {
 	
@@ -20,7 +19,7 @@ public class Program {
 		list.add(new Product("Cabo HDMI",50.00));
 		list.add(new Product("Headset",200.00));
 		
-		List<String> namesInCapsLock = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+		List<String> namesInCapsLock = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
 		namesInCapsLock.forEach(System.out::println);
 	}
 }
